@@ -3,25 +3,22 @@ import { Compteur } from './compteur.jsx'
 import { IncrementBtn } from './bouton.jsx'
 import { DecrementBtn } from './bouton.jsx'
 
-let p=0
 
 function App() {
   const [count, setCount]=useState(0)
 
   function incr(){
-    p = p + 1 
-    setCount(count + 1)
+    setCount((ancien)=>ancien+1)
   }
   function decr(){
     if (count > 0) {
-      p = p-1
-      setCount(count - 1)
+      setCount((ancien)=>ancien-1)
     }
   }
 
 
   return <>
-    <Compteur value={p}/>
+    <Compteur value={count}/>
     <div>
       <IncrementBtn onClick={incr}/>
       <DecrementBtn onClick={decr}/>
